@@ -38,12 +38,18 @@ class CategoryController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'status' => 'required'
+            'status' => 'required',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
+
+        //Upload image
+        $thumbnail = $request->file('thumbnail')->store('public/uploads/categories');
+        $thumbnailFileName = basename($thumbnail);
 
         $category = new Category;
         $category->title = $request->title;
         $category->status = $request->status;
+        $category->thumbnail = $thumbnailFileName;
         $category->save();
         return redirect('category')->with('success', 'Category successfull created!');
     }
@@ -83,6 +89,13 @@ class CategoryController extends Controller
             'title' => 'required',
             'status' => 'required'
         ]);
+
+        if ($request->hasFile('thumbnail')) {
+            //Upload image
+            $thumbnail = $request->file('thumbnail')->store('public/uploads/categories');
+            $thumbnailFileName = basename($thumbnail);
+            $category->thumbnail = $thumbnailFileName;
+        }
 
         $category->title = $request->title;
         $category->status = $request->status;
