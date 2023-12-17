@@ -16,7 +16,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = Role::where('name', 'Customer')->first()->users;
-        return view('customer.index', compact('customers'));
+        return view('admin.customer.index', compact('customers'));
     }
 
     /**

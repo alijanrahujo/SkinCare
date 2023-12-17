@@ -15,8 +15,8 @@ class PermissionsController extends Controller
      */
     public function index()
     {
-        $permissions=DB::table('permissions')->get();
-        return view('permissions.index', compact('permissions'));
+        $permissions = DB::table('permissions')->get();
+        return view('admin.permissions.index', compact('permissions'));
     }
 
     /**
@@ -37,9 +37,9 @@ class PermissionsController extends Controller
      */
     public function store(Request $request)
     {
-        Permission::create(['name' => $request->name,'guard_name' => 'web']);
+        Permission::create(['name' => $request->name, 'guard_name' => 'web']);
 
-        return redirect()->route('permissions.index');
+        return redirect()->route('admin.permissions.index');
     }
 
     /**
@@ -50,9 +50,9 @@ class PermissionsController extends Controller
      */
     public function show($id)
     {
-        $permissions=DB::table('permissions')->where('id',$id)->first();
+        $permissions = DB::table('permissions')->where('id', $id)->first();
 
-        return view('permissions.edit', compact('permissions'));
+        return view('admin.permissions.edit', compact('permissions'));
     }
 
     /**

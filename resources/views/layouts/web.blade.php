@@ -3,26 +3,27 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>{{env('APP_NAME')}}</title>
+    <title>{{ env('APP_NAME') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
 
     <!-- C3 Chart css -->
-    <link href="{{asset('assets/libs/c3/c3.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/libs/c3/c3.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- App css -->
-    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
-    <link href="{{asset('assets/css/all.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-stylesheet" />
-    <link href="{{asset('assets/libs/jquery-toast/jquery.toast.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"
+        id="bootstrap-stylesheet" />
+    <link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-stylesheet" />
+    <link href="{{ asset('assets/libs/jquery-toast/jquery.toast.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Sweet Alert -->
-    <link href="{{asset('assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
 
     @yield('style')
     <style>
@@ -45,7 +46,7 @@
 
                 <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
                     <!-- <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="{{asset('assets/images/flags/us.jpg')}}" alt="lang-image" height="12">
+                            <img src="{{ asset('assets/images/flags/us.jpg') }}" alt="lang-image" height="12">
                         </a> -->
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                         <!-- item-->
@@ -59,7 +60,8 @@
                 </li>
 
                 <li class="dropdown notification-list">
-                    <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#"
+                        role="button" aria-haspopup="false" aria-expanded="false">
                         <i class="dripicons-bell noti-icon"></i>
                         <span class="badge badge-pink rounded-circle noti-icon-badge">0</span>
                     </a>
@@ -81,7 +83,8 @@
                         </div>
 
                         <!-- All-->
-                        <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
+                        <a href="javascript:void(0);"
+                            class="dropdown-item text-center text-primary notify-item notify-all">
                             View all
                             <i class="fi-arrow-right"></i>
                         </a>
@@ -90,10 +93,11 @@
                 </li>
 
                 <li class="dropdown notification-list">
-                    <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="{{Auth::user()->profile_photo_url}}" alt="user-image" class="rounded-circle">
+                    <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
+                        href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <img src="{{ Auth::user()->profile_photo_url }}" alt="user-image" class="rounded-circle">
                         <span class="pro-user-name ml-1">
-                            {{Auth::user()->name}} <i class="mdi mdi-chevron-down"></i>
+                            {{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i>
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
@@ -120,7 +124,8 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <a class="dropdown-item notify-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <a class="dropdown-item notify-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
                                 this.closest('form').submit();">
                                 <i class="fe-log-out"></i>
                                 {{ __('Logout') }}
@@ -141,16 +146,17 @@
 
             <!-- LOGO -->
             <div class="logo-box">
-                <a href="{{Route('dashboard')}}" class="logo text-center">
+                <a href="{{ Route('dashboard') }}" class="logo text-center">
                     <span class="logo-lg">
                         <h4 class="text-white mt-4">SkinCare</h4>
-                        <!-- <img src="{{asset('assets/images/logo.jpeg')}}" alt="" width="100%" height="100"> -->
+                        <!-- <img src="{{ asset('assets/images/logo.jpeg') }}" alt="" width="100%" height="100"> -->
                         <!-- <span class="logo-lg-text-light">UBold</span> -->
                     </span>
                     <span class="logo-sm p-1">
                         <!-- <span class="logo-sm-text-dark">U</span> -->
-                        <!-- <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="28"> -->
-                        <img src="{{asset('assets/images/logo.jpeg')}}" alt="" width="100%" height="50">
+                        <!-- <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="28"> -->
+                        <img src="{{ asset('assets/images/logo.jpeg') }}" alt="" width="100%"
+                            height="50">
                     </span>
                 </a>
             </div>
@@ -192,52 +198,52 @@
 
                     <ul class="metismenu" id="side-menu">
                         <li>
-                            <a href="{{Route('dashboard')}}">
+                            <a href="{{ Route('dashboard') }}">
                                 <i class="fe-airplay"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{Route('product.index')}}">
+                            <a href="{{ Route('admin.product.index') }}">
                                 <i class="fe-airplay"></i>
                                 <span>Product</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{Route('category.index')}}">
+                            <a href="{{ Route('admin.category.index') }}">
                                 <i class="fe-airplay"></i>
                                 <span>Category</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{Route('customer.index')}}">
+                            <a href="{{ Route('admin.customer.index') }}">
                                 <i class="fe-airplay"></i>
                                 <span>Customer</span>
                             </a>
                         </li>
 
                         @can('user-access')
-                        <li>
-                            <a href="javascript: void(0);">
-                                <i class="fa fa-users"></i>
-                                <span>Users</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="nav-second-level" aria-expanded="false">
-                                @can('user-access')
-                                <li><a href="{{Route('users.index')}}">Manage Users</a></li>
-                                @endcan
-                                @can('role-access')
-                                <li><a href="{{Route('roles.index')}}">Roles</a></li>
-                                @endcan
-                                @can('permission-access')
-                                <li><a href="{{Route('permissions.index')}}">Permissions</a></li>
-                                @endcan
-                            </ul>
-                        </li>
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <i class="fa fa-users"></i>
+                                    <span>Users</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    @can('user-access')
+                                        <li><a href="{{ Route('admin.users.index') }}">Manage Users</a></li>
+                                    @endcan
+                                    @can('role-access')
+                                        <li><a href="{{ Route('admin.roles.index') }}">Roles</a></li>
+                                    @endcan
+                                    @can('permission-access')
+                                        <li><a href="{{ Route('admin.permissions.index') }}">Permissions</a></li>
+                                    @endcan
+                                </ul>
+                            </li>
                         @endcan
                     </ul>
 
@@ -295,7 +301,7 @@
                     <strong>Customize </strong> the overall color scheme, layout, etc.
                 </div>
                 <div class="mb-2">
-                    <img src="{{asset('assets/images/layouts/light.png')}}" class="img-fluid img-thumbnail" alt="">
+                    <img src="{{ asset('assets/images/layouts/light.png') }}" class="img-fluid img-thumbnail" alt="">
                 </div>
                 <div class="custom-control custom-switch mb-3">
                     <input type="checkbox" class="custom-control-input theme-choice" id="light-mode-switch" checked />
@@ -303,15 +309,15 @@
                 </div>
 
                 <div class="mb-2">
-                    <img src="{{asset('assets/images/layouts/dark.png')}}" class="img-fluid img-thumbnail" alt="">
+                    <img src="{{ asset('assets/images/layouts/dark.png') }}" class="img-fluid img-thumbnail" alt="">
                 </div>
                 <div class="custom-control custom-switch mb-3">
-                    <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch" data-bsStyle="{{asset('assets/css/bootstrap-dark.min.css')}}" data-appStyle="{{asset('assets/css/app-dark.min.css')}}" />
+                    <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch" data-bsStyle="{{ asset('assets/css/bootstrap-dark.min.css') }}" data-appStyle="{{ asset('assets/css/app-dark.min.css') }}" />
                     <label class="custom-control-label" for="dark-mode-switch">Dark Mode</label>
                 </div>
 
                 <div class="mb-2">
-                    <img src="{{asset('assets/images/layouts/rtl.png')}}" class="img-fluid img-thumbnail" alt="">
+                    <img src="{{ asset('assets/images/layouts/rtl.png') }}" class="img-fluid img-thumbnail" alt="">
                 </div>
                 <div class="custom-control custom-switch mb-3">
                     <input type="checkbox" class="custom-control-input theme-choice" id="rtl-mode-switch" data-appStyle="assets/css/app-rtl.min.css" />
@@ -319,7 +325,7 @@
                 </div>
 
                 <div class="mb-2">
-                    <img src="{{asset('assets/images/layouts/dark-rtl.png')}}" class="img-fluid img-thumbnail" alt="">
+                    <img src="{{ asset('assets/images/layouts/dark-rtl.png') }}" class="img-fluid img-thumbnail" alt="">
                 </div>
                 <div class="custom-control custom-switch mb-5">
                     <input type="checkbox" class="custom-control-input theme-choice" id="dark-rtl-mode-switch" data-bsStyle="assets/css/bootstrap-dark.min.css" data-appStyle="assets/css/app-dark-rtl.min.css" />
@@ -340,73 +346,73 @@
     </a> -->
 
     <!-- Vendor js -->
-    <script src="{{asset('assets/js/vendor.min.js')}}"></script>
+    <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
 
     <!-- Sweet Alert -->
-    <script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
 
     <!-- App js -->
-    <script src="{{asset('assets/js/app.min.js')}}"></script>
-    <script src="{{asset('assets/libs/jquery-toast/jquery.toast.min.js')}}"></script>
+    <script src="{{ asset('assets/js/app.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/jquery-toast/jquery.toast.min.js') }}"></script>
 
     @yield('script')
     @livewireScripts
 
-    @if($message = Session::get('success'))
-    <script>
-        window.addEventListener('refresh-page', event => {
-            window.location.reload(false);
-        });
-
-        window.addEventListener('swal:modal', event => {
-            swal({
-                title: event.detail.title,
-                text: event.detail.text,
-                icon: event.detail.type,
+    @if ($message = Session::get('success'))
+        <script>
+            window.addEventListener('refresh-page', event => {
+                window.location.reload(false);
             });
-        });
 
-        window.addEventListener('swal:confirm', event => {
-            swal({
+            window.addEventListener('swal:modal', event => {
+                swal({
                     title: event.detail.title,
                     text: event.detail.text,
                     icon: event.detail.type,
-                    button: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        window.livewire.emit('delete', event.detail.id);
-                    }
                 });
-        });
+            });
+
+            window.addEventListener('swal:confirm', event => {
+                swal({
+                        title: event.detail.title,
+                        text: event.detail.text,
+                        icon: event.detail.type,
+                        button: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            window.livewire.emit('delete', event.detail.id);
+                        }
+                    });
+            });
 
 
 
-        $.toast({
-            heading: "Well done!",
-            text: "{!! $message !!}",
-            position: "top-right",
-            loaderBg: "#5ba035",
-            icon: "success",
-            hideAfter: 3e3,
-            stack: 1
-        })
-    </script>
+            $.toast({
+                heading: "Well done!",
+                text: "{!! $message !!}",
+                position: "top-right",
+                loaderBg: "#5ba035",
+                icon: "success",
+                hideAfter: 3e3,
+                stack: 1
+            })
+        </script>
     @endif
 
-    @if($message = Session::get('error'))
-    <script>
-        $.toast({
-            heading: "Oh snap!",
-            text: "{!! $message !!}",
-            position: "top-right",
-            loaderBg: "#bf441d",
-            icon: "error",
-            hideAfter: 3e3,
-            stack: 1
-        })
-    </script>
+    @if ($message = Session::get('error'))
+        <script>
+            $.toast({
+                heading: "Oh snap!",
+                text: "{!! $message !!}",
+                position: "top-right",
+                loaderBg: "#bf441d",
+                icon: "error",
+                hideAfter: 3e3,
+                stack: 1
+            })
+        </script>
     @endif
 </body>
 

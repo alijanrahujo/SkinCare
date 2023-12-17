@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::get();
-        return view('product.index', compact('products'));
+        return view('admin.product.index', compact('products'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function create()
     {
         $category = Category::pluck('title', 'id');
-        return view('product.create', compact('category'));
+        return view('admin.product.create', compact('category'));
     }
 
     /**
@@ -75,7 +75,7 @@ class ProductController extends Controller
         $product->status = $request->status;
         $product->save();
 
-        return redirect('product')->with('success', 'Product successfully created!');
+        return redirect('admin/product')->with('success', 'Product successfully created!');
     }
 
     /**
@@ -97,7 +97,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $category = Category::pluck('title', 'id');
+        return view('admin.product.edit', compact('product', 'category'));
     }
 
     /**
@@ -109,7 +110,46 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'price' => 'required',
+            'mrp' => 'required',
+            'stock' => 'required',
+            'status' => 'required',
+            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+        ]);
+
+        // Store thumbnail
+        if ($request->hasFile('thumbnail')) {
+            $thumbnail = $request->file('thumbnail')->store('public/uploads/products');
+            $thumbnailFileName = basename($thumbnail);
+            $product->thumbnail = $thumbnailFileName;
+        }
+
+        // Store images
+        if ($request->hasFile('images')) {
+            $images = [];
+            foreach ($request->file('images') as $file) {
+                $imagePath = $file->store('public/uploads/products');
+                // $images[] = $imagePath;
+                $images[] = basename($imagePath);
+            }
+            $product->images = json_encode($images);
+        }
+
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->category_id = $request->category_id;
+        $product->price = $request->price;
+        $product->mrp = $request->mrp;
+        $product->stock = $request->stock;
+        $product->status = $request->status;
+        $product->update();
+
+        return redirect('admin/product')->with('success', 'Product successfully updated!');
     }
 
     /**
@@ -121,6 +161,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect('product')->with('success', 'Product successfully delete!');
+        return redirect('admin/product')->with('success', 'Product successfully delete!');
     }
 }

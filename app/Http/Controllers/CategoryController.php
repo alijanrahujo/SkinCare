@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::get();
-        return view('category.index', compact('categories'));
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return view('admin.category.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class CategoryController extends Controller
         $category->status = $request->status;
         $category->thumbnail = $thumbnailFileName;
         $category->save();
-        return redirect('category')->with('success', 'Category successfull created!');
+        return redirect('admin/category')->with('success', 'Category successfull created!');
     }
 
     /**
@@ -73,7 +73,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('category.edit', compact('category'));
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -101,7 +101,7 @@ class CategoryController extends Controller
         $category->status = $request->status;
         $category->update();
 
-        return redirect('category')->with('success', 'Category successfully updated!');
+        return redirect('admin/category')->with('success', 'Category successfully updated!');
     }
 
     /**
@@ -113,6 +113,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect('category')->with('success', 'Category successfully deleted!');
+        return redirect('admin/category')->with('success', 'Category successfully deleted!');
     }
 }
