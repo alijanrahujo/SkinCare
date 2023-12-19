@@ -202,7 +202,7 @@
                         <div class="col-lg-3">
                             <div class="categories__item set-bg"
                                 data-setbg="{{ asset('storage/uploads/categories/' . $category->thumbnail) }}">
-                                <h5><a href="#">{{ $category->title }}</a></h5>
+                                <h5><a href="{{ Route('shop', $category->id) }}">{{ $category->title }}</a></h5>
                             </div>
                         </div>
                     @endforeach
