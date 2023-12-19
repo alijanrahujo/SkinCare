@@ -29,4 +29,24 @@ class DashboardController extends Controller
 
         return view('frontend.singleProduct', compact('product', 'relatedProducts'));
     }
+    public function shop($id = null)
+    {
+        $categories = Category::get();
+        $products = new Product;
+        if ($id) {
+            $products = $products->where('category_id', $id);
+        }
+        $letestProducts = Product::orderby('id', 'desc')->limit(6)->get();
+        $saleProducts = Product::inRandomOrder()->get();
+
+        $data = [];
+
+        $data['price']['min'] = $products->min('price');
+        $data['price']['max'] = $products->max('price');
+        $data['product']['total'] = $products->count();
+
+        $products = $products->get();
+
+        return view('frontend.shop', compact('products', 'categories', 'letestProducts', 'saleProducts', 'data'));
+    }
 }
