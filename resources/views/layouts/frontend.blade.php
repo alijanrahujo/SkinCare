@@ -21,6 +21,12 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('frontend/css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" type="text/css">
+    @livewireStyles
+    <style>
+        .breadcrumb-section {
+            background-image: url("{{ asset('frontend/img/breadcrumb.jpg') }}");
+        }
+    </style>
 </head>
 
 <body>
@@ -35,13 +41,7 @@
         <div class="humberger__menu__logo">
             <a href="/"><img src="{{ asset('frontend/img/logo.png') }}" alt=""></a>
         </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="{{ Route('cart') }}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
+        <x-cart />
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
                 <img src="{{ asset('frontend/img/language.png') }}" alt="">
@@ -62,10 +62,14 @@
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61552649396438&mibextid=LQQJ4d"><i
+                    class="fa fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@ar.skincare?_t=8hSxynKwcB0&_r=1"><i class="fa fa-twitter"></i></a>
+            <a href="https://instagram.com/arskincare.pk?igshid=OGQ5ZDc2ODk2ZA=="><i class="fa fa-linkedin"></i></a>
+            {{-- <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a> --}}
         </div>
         <div class="humberger__menu__contact">
             <ul>
@@ -92,10 +96,16 @@
                     <div class="col-lg-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=61552649396438&mibextid=LQQJ4d"><i
+                                        class="fa fa-facebook"></i></a>
+                                <a href="https://www.tiktok.com/@ar.skincare?_t=8hSxynKwcB0&_r=1"><i
+                                        class="fa fa-twitter"></i></a>
+                                <a href="https://instagram.com/arskincare.pk?igshid=OGQ5ZDc2ODk2ZA=="><i
+                                        class="fa fa-linkedin"></i></a>
+                                {{-- <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a> --}}
                             </div>
                             <div class="header__top__right__language">
                                 <img src="{{ asset('frontend/img/language.png') }}" alt="">
@@ -118,7 +128,8 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="/"><img src="{{ asset('frontend/img/logo.png') }}" alt=""></a>
+                        <a href="/"><img src="{{ asset('frontend/img/logo.png') }}" alt=""
+                                height="60"></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -127,14 +138,7 @@
                     </nav>
                 </div>
                 <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="{{ Route('cart') }}"><i class="fa fa-shopping-bag"></i> <span>3</span></a>
-                            </li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
-                    </div>
+                    <x-cart />
                 </div>
             </div>
             <div class="humberger__open">
@@ -274,8 +278,8 @@
     <script src="{{ asset('frontend/js/mixitup.min.js') }}"></script>
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('frontend/js/main.js') }}"></script>
-
-
+    @livewireScripts
+    @yield('script')
 </body>
 
 </html>

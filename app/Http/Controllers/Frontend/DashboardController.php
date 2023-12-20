@@ -49,4 +49,8 @@ class DashboardController extends Controller
 
         return view('frontend.shop', compact('products', 'categories', 'letestProducts', 'saleProducts', 'data'));
     }
+    public function contact()
+    {
+        return view('frontend.contact');
+    }
 }

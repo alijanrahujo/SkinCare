@@ -29,8 +29,9 @@ Route::get('/', function () {
 Route::get('/', [FrontendDashboardController::class, 'index']);
 Route::get('/product/{id}', [FrontendDashboardController::class, 'singleProduct'])->name('product');
 Route::get('/shop/{id?}', [FrontendDashboardController::class, 'shop'])->name('shop');
-Route::get('/cart', [FrontendCartController::class, 'index'])->name('cart');
+Route::resource('cart', FrontendCartController::class);
 Route::get('/addcart/{id}', [FrontendCartController::class, 'addCart'])->name('addcart');
+Route::get('/contact', [FrontendDashboardController::class, 'contact'])->name('contact');
 
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {

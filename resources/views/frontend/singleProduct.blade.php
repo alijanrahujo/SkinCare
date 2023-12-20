@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 @section('content')
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="{{ asset('frontend/img/breadcrumb.jpg') }}">
+    <section class="breadcrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -50,15 +50,21 @@
                         </div>
                         <div class="product__details__price">RS {{ $product->price }}</div>
                         <p>{!! $product->description !!}</p>
-                        <div class="product__details__quantity">
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
+                        <form action="{{ Route('cart.store') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <div class="product__details__quantity">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input name="qty" type="text" min="1" max="{{ $product->stock }}"
+                                            value="1">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <a href="#" class="primary-btn">ADD TO CARD</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                            <button class="btn primary-btn">ADD TO CARD</button>
+                            {{-- <a href="#" class="primary-btn">ADD TO CARD</a> --}}
+                            {{-- <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a> --}}
+                        </form>
                         <ul>
                             <li><b>Availability</b> <span>{{ $product->stock > 0 ? 'In Stock' : 'Out of Stock' }}</span>
                             </li>
@@ -157,9 +163,12 @@
                             <div class="product__item__pic set-bg"
                                 data-setbg="{{ asset('storage/uploads/products/' . $relatedProduct->thumbnail) }}">
                                 <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <li><a href="{{ Route('addcart', $relatedProduct->id) }}"><i
+                                                class="fa fa-heart"></i></a></li>
+                                    <li><a href="{{ Route('addcart', $relatedProduct->id) }}"><i
+                                                class="fa fa-retweet"></i></a></li>
+                                    <li><a href="{{ Route('addcart', $relatedProduct->id) }}"><i
+                                                class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>
                             <div class="product__item__text">

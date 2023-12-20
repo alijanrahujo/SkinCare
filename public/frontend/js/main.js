@@ -211,18 +211,19 @@
     proQty.append('<span class="inc qtybtn">+</span>');
     proQty.on('click', '.qtybtn', function () {
         var $button = $(this);
-        var oldValue = $button.parent().find('input').val();
+        var $input = $button.parent().find('input');
+        var oldValue = parseFloat($input.val());
+        var minVal = parseFloat($input.attr('min'));
+        var maxVal = parseFloat($input.attr('max'));
+
         if ($button.hasClass('inc')) {
-            var newVal = parseFloat(oldValue) + 1;
+            var newVal = (oldValue + 1 <= maxVal) ? oldValue + 1 : maxVal;
         } else {
-            // Don't allow decrementing below zero
-            if (oldValue > 0) {
-                var newVal = parseFloat(oldValue) - 1;
-            } else {
-                newVal = 0;
-            }
+            // Don't allow decrementing below the specified minimum value
+            var newVal = (oldValue - 1 >= minVal) ? oldValue - 1 : minVal;
         }
-        $button.parent().find('input').val(newVal);
+
+        $input.val(newVal);
     });
 
 })(jQuery);
