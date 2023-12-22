@@ -8,5 +8,5 @@
             @endforeach
         </ul>
     </li>
-    <li><a href="{{ Route('contact') }}">Contact</a></li>
+    <li><a href="{{ Route('contactus') }}">Contact</a></li>
 </ul>

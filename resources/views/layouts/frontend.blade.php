@@ -53,7 +53,16 @@
                 </ul> --}}
             </div>
             <div class="header__top__right__auth">
-                <a href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a>
+                @auth
+                        <form action="{{ route('logout') }}" method="post">
+                            {{ auth()->user()->name }}
+                            @csrf
+                            <button class="btn" type="submit"><i class="fa fa-user"></i>
+                                Logout</a></button>
+                        </form>
+                @else
+                    <a href="{{ Route('login') }}"><i class="fa fa-user"></i> Login</a>
+                @endauth
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -117,7 +126,18 @@
                                 </ul> --}}
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="{{ Route('login') }}"><i class="fa fa-user"></i> Login</a>
+                                @auth
+                                    <div>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            {{ auth()->user()->name }}
+                                            @csrf
+                                            <button class="btn" type="submit"><i class="fa fa-user"></i>
+                                                Logout</a></button>
+                                        </form>
+                                    </div>
+                                @else
+                                    <a href="{{ Route('login') }}"><i class="fa fa-user"></i> Login</a>
+                                @endauth
                             </div>
                         </div>
                     </div>
@@ -127,7 +147,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="header__logo">
+                    <div class="header__logo text-center">
                         <a href="/"><img src="{{ asset('frontend/img/logo.png') }}" alt=""
                                 height="60"></a>
                     </div>

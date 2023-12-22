@@ -71,36 +71,63 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__btns">
-                        <a href="/" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                        {{-- <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+            <form action="{{ Route('order.store') }}" method="post">
+                @csrf
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="shoping__cart__btns">
+                            <a href="/" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                            {{-- <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                             Upadate Cart</a> --}}
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="shoping__continue">
-                        {{-- <div class="shoping__discount">
+                    <div class="col-lg-6">
+                        <div class="shoping__continue">
+                            {{-- <div class="shoping__discount">
                             <h5>Discount Codes</h5>
                             <form action="#">
                                 <input type="text" placeholder="Enter your coupon code">
                                 <button type="submit" class="site-btn">APPLY COUPON</button>
                             </form>
                         </div> --}}
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" value="{{ auth()->user()->name }}" class="form-control"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact No</label>
+                            <input type="text" name="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" name="address" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" name="city" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Payment Method</label>
+                            <select name="method" class="form-select w-100" required>
+                                <option>Cash on delivery</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="shoping__checkout">
+                            <h5>Cart Total</h5>
+                            <ul>
+                                <li>Subtotal <span>RS {{ $total }}</span></li>
+                                <li>Total <span>RS {{ $total }}</span></li>
+                            </ul>
+                            <button class="btn primary-btn w-100">PLACE ORDER</button>
+                            {{-- <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a> --}}
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="shoping__checkout">
-                        <h5>Cart Total</h5>
-                        <ul>
-                            <li>Subtotal <span>RS {{ $total }}</span></li>
-                            <li>Total <span>RS {{ $total }}</span></li>
-                        </ul>
-                        <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <!-- Shoping Cart Section End -->
