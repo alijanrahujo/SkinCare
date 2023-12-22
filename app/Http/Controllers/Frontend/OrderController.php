@@ -46,6 +46,12 @@ class OrderController extends Controller
             "method" => "required"
         ]);
 
+        $carts = Cart::where('user_id', auth()->id())->get();
+
+        if (!$carts) {
+            return redirect()->back()->with('success', 'Cart is empty!');
+        }
+
         $order = new Order;
         $order->name = $request->name;
         $order->phone = $request->phone;
@@ -55,7 +61,6 @@ class OrderController extends Controller
         $order->user_id = auth()->id();
         $order->save();
 
-        $carts = Cart::where('user_id', auth()->id())->get();
         foreach ($carts as $cart) {
             $orderDetail = new OrderDetail;
             $orderDetail->title = $cart->product->title;
