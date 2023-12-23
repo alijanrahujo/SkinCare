@@ -74,7 +74,7 @@ class OrderController extends Controller
         }
 
         Cart::where('user_id', auth()->id())->delete();
-        return redirect('/')->with('success', 'Successfully order completed!');
+        return redirect('myorder')->with('success', 'Successfully order completed!');
     }
 
     /**
