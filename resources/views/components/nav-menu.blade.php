@@ -9,4 +9,5 @@
         </ul>
     </li>
     <li><a href="{{ Route('contactus') }}">Contact</a></li>
+    <li><a href="{{ Route('myorder') }}">My Orders</a></li>
 </ul>

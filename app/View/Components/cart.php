@@ -16,7 +16,12 @@ class cart extends Component
     public function __construct()
     {
         $this->cart['cart'] = CartModel::where('user_id', auth()->id())->count();
-        $this->cart['price'] = CartModel::where('user_id', auth()->id())->with('product')->get()->sum('product.price');
+        $this->cart['price'] = CartModel::where('user_id', auth()->id())
+            ->with('product')
+            ->get()
+            ->sum(function ($item) {
+                return $item->product->price * $item->qty;
+            });
     }
 
     /**

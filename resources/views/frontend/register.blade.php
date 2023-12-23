@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+@section('title', 'Register')
 @section('content')
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section">
@@ -33,20 +34,20 @@
                     <x-jet-validation-errors class="mb-4" />
                 </div>
             </div>
-            <form action="{{ Route('contact.store') }}" method="post">
+            <form action="{{ route('register') }}" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" name="name" placeholder="Your name" required>
+                        <input type="text" name="name" placeholder="Your name">
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <input type="email" name="email" placeholder="Your email" required>
+                        <input type="email" name="email" placeholder="Your email">
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <input type="password" name="password" placeholder="Your password" required>
+                        <input type="password" name="password" placeholder="Your password">
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <input type="password" name="password_confirmation" placeholder="Confirmation password" required>
+                        <input type="password" name="password_confirmation" placeholder="Confirmation password">
                     </div>
                     <div class="col-lg-12 text-center">
                         <button type="submit" class="site-btn">REGISTER</button>

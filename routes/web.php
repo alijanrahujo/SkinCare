@@ -13,6 +13,7 @@ use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\Frontend\CartController as FrontendCartController;
 use App\Http\Controllers\Frontend\DashboardController as FrontendDashboardController;
 use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
+use App\Http\Controllers\Frontend\UserController as FrontendUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::get('/addcart/{id}', [FrontendCartController::class, 'addCart'])->name('a
 Route::get('/contactus', [FrontendDashboardController::class, 'contact'])->name('contactus');
 Route::resource('/contact', FrontendContactController::class);
 Route::resource('/order', FrontendOrderController::class);
+Route::get('/myorder', [FrontendUserController::class, 'myorder'])->name('myorder');
 
 
 // Admin Panel

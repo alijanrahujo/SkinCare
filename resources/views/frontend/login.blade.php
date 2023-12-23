@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+@section('title', 'Login')
 @section('content')
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section">

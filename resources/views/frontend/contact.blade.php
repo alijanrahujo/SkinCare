@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+@section('title','Contact us')
 @section('content')
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section">
@@ -26,28 +27,28 @@
                     <div class="contact__widget">
                         <span class="icon_phone"></span>
                         <h4>Phone</h4>
-                        <p>+01-3-8888-6868</p>
+                        <p>+92 333 6857367</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_pin_alt"></span>
                         <h4>Address</h4>
-                        <p>60-49 Road 11378 New York</p>
+                        <p>Shop 16/17 Underground Quaid e Azam Complex Doctor Line, Hyderabad, Pakistan</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_clock_alt"></span>
                         <h4>Open time</h4>
-                        <p>10:00 am to 23:00 pm</p>
+                        <p>9:00 am to 23:00 pm</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_mail_alt"></span>
                         <h4>Email</h4>
-                        <p>hello@colorlib.com</p>
+                        <p>info@arskincare.pk</p>
                     </div>
                 </div>
             </div>
@@ -58,15 +59,15 @@
     <!-- Map Begin -->
     <div class="map">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49116.39176087041!2d-86.41867791216099!3d39.69977417971648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886ca48c841038a1%3A0x70cfba96bf847f0!2sPlainfield%2C%20IN%2C%20USA!5e0!3m2!1sen!2sbd!4v1586106673811!5m2!1sen!2sbd"
+            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3605.5668193134807!2d68.34419251091047!3d25.3523130253072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sShop%2016%2F17%20Underground%20Quaid%20e%20Azam%20Complex%20Doctor%20Line%2C%20Hyderabad%2C%20Pakistan!5e0!3m2!1sen!2s!4v1703313042116!5m2!1sen!2s"
             height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         <div class="map-inside">
             <i class="icon_pin"></i>
             <div class="inside-widget">
-                <h4>New York</h4>
+                <h4>Ar Skincare</h4>
                 <ul>
-                    <li>Phone: +12-345-6789</li>
-                    <li>Add: 16 Creek Ave. Farmingdale, NY</li>
+                    <li>Phone: +92 333 6857367</li>
+                    <li>Add: Shop 16/17 Underground Quaid e Azam Complex Doctor Line, Hyderabad, Pakistan</li>
                 </ul>
             </div>
         </div>

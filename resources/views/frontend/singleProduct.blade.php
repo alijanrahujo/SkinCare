@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+@section('title', 'Product')
 @section('content')
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section">
@@ -69,13 +70,28 @@
                             <li><b>Availability</b> <span>{{ $product->stock > 0 ? 'In Stock' : 'Out of Stock' }}</span>
                             </li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                            <li><b>Weight</b> <span>0.5 kg</span></li>
+                            {{-- <li><b>Weight</b> <span>0.5 kg</span></li> --}}
                             <li><b>Share on</b>
                                 <div class="share">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
+
+                                    <a href="https://www.facebook.com/profile.php?id=61552649396438&mibextid=LQQJ4d"><i
+                                            class="fa fa-facebook"></i></a>
+                                    <a href="https://instagram.com/arskincare.pk?igshid=OGQ5ZDc2ODk2ZA=="><i
+                                            class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <a href="https://wa.me/923336857367"><i class="fa fa-whatsapp"
+                                            aria-hidden="true"></i></a>
+                                    <a href="https://www.tiktok.com/@ar.skincare?_t=8hSxynKwcB0&_r=1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12.25" height="14"
+                                            viewBox="0 0 448 512">
+                                            <path fill="black"
+                                                d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121.18 121.18 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z" />
+                                        </svg>
+                                    </a>
+
+                                    {{-- <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
                                     <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a> --}}
                                 </div>
                             </li>
                         </ul>
