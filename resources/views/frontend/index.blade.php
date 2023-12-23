@@ -23,6 +23,12 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('frontend/libs/jquery-toast/jquery.toast.min.css') }}" type="text/css" />
 
+    <style>
+        a:hover {
+            color: black;
+            text-decoration: underline !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -57,7 +63,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
+                                <h5>+92 333 6857367</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
