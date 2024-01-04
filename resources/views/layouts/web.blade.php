@@ -225,6 +225,13 @@
                             </a>
                         </li>
 
+                        <li>
+                            <a href="{{ Route('admin.order.index') }}">
+                                <i class="fe-airplay"></i>
+                                <span>Order</span>
+                            </a>
+                        </li>
+
                         @can('user-access')
                             <li>
                                 <a href="javascript: void(0);">

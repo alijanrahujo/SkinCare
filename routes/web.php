@@ -5,11 +5,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ContactController as FrontendContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ContactController as FrontendContactController;
 use App\Http\Controllers\Frontend\CartController as FrontendCartController;
 use App\Http\Controllers\Frontend\DashboardController as FrontendDashboardController;
 use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
@@ -52,6 +53,7 @@ Route::group(['middleware' => ['role:Admin'], 'prefix' => 'admin', 'as' => 'admi
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
     Route::resource('customer', CustomerController::class);
+    Route::resource('order', OrderController::class);
 
     Route::resource('users', UserController::class);
     Route::resource('roles', RoleController::class);
